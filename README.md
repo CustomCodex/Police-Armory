@@ -4,6 +4,8 @@ Police Armory Script for ESX (v1.10.7)
 
 Elevate your law enforcement experience with our advanced Police Armory script, designed specifically for ESX version 1.10.7. This script integrates seamlessly with ox_target, ox_lib, and ox_inventory, providing a comprehensive and immersive armory system for police departments.
 
+<img src="https://i.imgur.com/8EnwqPi.png" alt="PoliceArmory">
+
 🔧 **Features:**
 
 Enhanced Armory Access: Utilize ox_target for intuitive and precise interactions with armory components. Officers can easily access weapons and equipment using advanced targeting mechanics.
@@ -17,6 +19,11 @@ Customizable Equipment: The armory supports a wide range of customizable weapons
 Secure Access Control: Implement access permissions and roles to ensure that only authorized personnel can access and manage the armory.
 
 Intuitive UI: Designed with a user-friendly interface that integrates seamlessly with your existing ESX setup, making it easy for officers to navigate and utilize the armory.
+
+☕ Buy Me a Coffee:
+If you appreciate the script and want to support further development, consider buying me a coffee!
+
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="costumcodex" data-color="#FFDD00" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff"></script>
 
 🔒 **Security Features:**
 
