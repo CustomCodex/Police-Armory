@@ -20,10 +20,10 @@ Secure Access Control: Implement access permissions and roles to ensure that onl
 
 Intuitive UI: Designed with a user-friendly interface that integrates seamlessly with your existing ESX setup, making it easy for officers to navigate and utilize the armory.
 
-☕ Buy Me a Coffee:
-If you appreciate the script and want to support further development, consider buying me a coffee!
+☕ **Buy Me a Coffee**:
 
-<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="costumcodex" data-color="#FFDD00" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff"></script>
+If you appreciate the script and want to support further development, consider buying me a coffee!
+[Buy Me a Coffee](https://www.buymeacoffee.com/costumcodex)
 
 🔒 **Security Features:**
 
