@@ -2,8 +2,8 @@ ESX = nil
 
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
-local webhookUrl1 = 'YOURWEBHOOKHERE'  -- Replace with your webhook URL
-local webhookUrl2 = 'YOURWEBHOOKHERE'  -- Replace with your webhook URL
+local webhookUrl1 = 'https://discord.com/api/webhooks/1265011787963826236/VZvWnyQ7Sp-cxq6NULuFBulu9HEhtG9IrQuqRhBh2cC36ex9zJi0g11myAZbtwleluKy'  -- Replace with your webhook URL
+local webhookUrl2 = 'https://discord.com/api/webhooks/1265012252885647391/JHQ_kpE6tFzgrLmzzEqMnMJIm81gtC8w2M44HgDcVaKKe7Uh1utgakdH2LR0mv4SoPjw'  -- Replace with your webhook URL
 
 -- Function to send a message to a Discord webhook
 local function sendToWebhook(url, message)
@@ -179,3 +179,53 @@ AddEventHandler('policearmory:returnWeapon', function(weaponName)
 
     sendToWebhook(webhookUrl2, message)
 end)
+
+RegisterServerEvent('policearmory:buyAmmo')
+AddEventHandler('policearmory:buyAmmo', function(weaponName, ammoType, ammoPrice)
+    local xPlayer = ESX.GetPlayerFromId(source)
+    local money = xPlayer.getMoney()
+    local identifier = xPlayer.getIdentifier()
+    local playerName = getInGamePlayerName(source)
+    local steamId = getSteamId(source)
+    local licenseId = getFiveMLicense(source)
+    local location = getPlayerLocation(source)
+    local time = getCurrentTimeInDutch()
+    local job = xPlayer.job.label
+    local rank = getPlayerRank(xPlayer)
+
+    if money >= ammoPrice then
+        xPlayer.removeMoney(ammoPrice)
+
+        -- Add ammo to the player's inventory
+        local ammoItemName = weaponName .. '_ammo'
+        exports.ox_inventory:AddItem(source, ammoItemName, 1, {ammo = 250})
+
+        -- Notify the player
+        TriggerClientEvent('esx:showNotification', source, 'Je hebt ' .. ammoType .. ' gekocht voor $' .. ammoPrice)
+
+        -- Send message to Discord webhook
+        local message = string.format([[
+**Ammunitie Aankoop Log**
+- **Speler:** %s
+- **Steam ID:** %s
+- **FiveM Licentie:** %s
+- **Identificatie:** %s
+- **Wapen:** %s
+- **Ammunitie Type:** %s
+- **Prijs:** $%d
+- **Locatie:** %s
+- **Datum en Tijd:** %s
+- **Rol:** %s
+- **Rang:** %s
+- **Servernaam:** %s
+
+**Beschrijving:** Speler %s heeft %s gekocht voor $%d. Veel succes en een goede dienst!
+        ]], playerName, steamId, licenseId, identifier, ESX.GetWeaponLabel(weaponName), ammoType, ammoPrice, location, time, job, rank, GetConvar('sv_hostname', 'Onbekend'), playerName, ammoType, ammoPrice)
+
+        sendToWebhook(webhookUrl1, message)
+    else
+        TriggerClientEvent('esx:showNotification', source, 'Je hebt niet genoeg geld')
+    end
+end)
+
+

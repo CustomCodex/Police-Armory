@@ -307,6 +307,142 @@ Config.AmmoPrices = {
     ['WEAPON_FLARE'] = 0
 }
 
+-- Ammo types configuration
+Config.AmmoTypes = {
+    ['WEAPON_PISTOL'] = {
+        ['ammo'] = 'Pistol Ammo',
+        ['price'] = 100
+    },
+    ['WEAPON_APPISTOL'] = {
+        ['ammo'] = 'Pistol Ammo',
+        ['price'] = 100
+    },
+    ['WEAPON_HEAVYPISTOL'] = {
+        ['ammo'] = 'Heavy Pistol Ammo',
+        ['price'] = 150
+    },
+    ['WEAPON_MARKSMANPISTOL'] = {
+        ['ammo'] = 'Marksmanship Pistol Ammo',
+        ['price'] = 150
+    },
+    ['WEAPON_REVOLVER'] = {
+        ['ammo'] = 'Revolver Ammo',
+        ['price'] = 200
+    },
+    ['WEAPON_DOUBLEACTION'] = {
+        ['ammo'] = 'Double Action Revolver Ammo',
+        ['price'] = 200
+    },
+    ['WEAPON_GADGETPISTOL'] = {
+        ['ammo'] = 'Gadget Pistol Ammo',
+        ['price'] = 200
+    },
+    ['WEAPON_MACHINEPISTOL'] = {
+        ['ammo'] = 'Machine Pistol Ammo',
+        ['price'] = 200
+    },
+    ['WEAPON_MINISMG'] = {
+        ['ammo'] = 'Mini SMG Ammo',
+        ['price'] = 250
+    },
+    ['WEAPON_ASSAULTRIFLE'] = {
+        ['ammo'] = 'Assault Rifle Ammo',
+        ['price'] = 300
+    },
+    ['WEAPON_ASSAULTRIFLE_MK2'] = {
+        ['ammo'] = 'Assault Rifle Ammo',
+        ['price'] = 300
+    },
+    ['WEAPON_COMBATPDW'] = {
+        ['ammo'] = 'Combat PDW Ammo',
+        ['price'] = 300
+    },
+    ['WEAPON_MG'] = {
+        ['ammo'] = 'Machine Gun Ammo',
+        ['price'] = 350
+    },
+    ['WEAPON_COMBATMG'] = {
+        ['ammo'] = 'Combat MG Ammo',
+        ['price'] = 350
+    },
+    ['WEAPON_GUSENBERG'] = {
+        ['ammo'] = 'Gusenberg Ammo',
+        ['price'] = 400
+    },
+    ['WEAPON_HOMINGLAUNCHER'] = {
+        ['ammo'] = 'Homing Launcher Ammo',
+        ['price'] = 500
+    },
+    ['WEAPON_RPG'] = {
+        ['ammo'] = 'RPG Ammo',
+        ['price'] = 500
+    },
+    ['WEAPON_GRENADELAUNCHER'] = {
+        ['ammo'] = 'Grenade Launcher Ammo',
+        ['price'] = 500
+    },
+    ['WEAPON_GRENADELAUNCHER_SMOKE'] = {
+        ['ammo'] = 'Smoke Grenade Launcher Ammo',
+        ['price'] = 500
+    },
+    ['WEAPON_RAILGUN'] = {
+        ['ammo'] = 'Railgun Ammo',
+        ['price'] = 600
+    },
+    ['WEAPON_DBSHOTGUN'] = {
+        ['ammo'] = 'DB Shotgun Ammo',
+        ['price'] = 350
+    },
+    ['WEAPON_AUTOSHOTGUN'] = {
+        ['ammo'] = 'Auto Shotgun Ammo',
+        ['price'] = 350
+    },
+    ['WEAPON_BULLPUPSHOTGUN'] = {
+        ['ammo'] = 'Bullpup Shotgun Ammo',
+        ['price'] = 350
+    },
+    ['WEAPON_SAWNOFFSHOTGUN'] = {
+        ['ammo'] = 'Sawed-off Shotgun Ammo',
+        ['price'] = 300
+    },
+    ['WEAPON_MILITARYRIFLE'] = {
+        ['ammo'] = 'Military Rifle Ammo',
+        ['price'] = 400
+    },
+    ['WEAPON_TACTICALRIFLE'] = {
+        ['ammo'] = 'Tactical Rifle Ammo',
+        ['price'] = 400
+    },
+    ['WEAPON_GRENADES'] = {
+        ['ammo'] = 'Grenades',
+        ['price'] = 50
+    },
+    ['WEAPON_SMOKEGRENADE'] = {
+        ['ammo'] = 'Smoke Grenades',
+        ['price'] = 50
+    },
+    ['WEAPON_MOLOTOV'] = {
+        ['ammo'] = 'Molotovs',
+        ['price'] = 50
+    },
+    ['WEAPON_STICKYBOMB'] = {
+        ['ammo'] = 'Sticky Bombs',
+        ['price'] = 100
+    },
+    ['WEAPON_PROXIMITYMINE'] = {
+        ['ammo'] = 'Proximity Mines',
+        ['price'] = 100
+    },
+    ['WEAPON_SNOWBALL'] = {
+        ['ammo'] = 'Snowballs',
+        ['price'] = 0
+    },
+    ['WEAPON_FLARE'] = {
+        ['ammo'] = 'Flares',
+        ['price'] = 0
+    }
+}
+
 -- Menu position
 Config.MenuPosition = {
     align = 'center-left',   -- Use 'center' to center-align the menu
