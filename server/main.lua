@@ -2,8 +2,8 @@ ESX = nil
 
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
-local webhookUrl1 = 'https://discord.com/api/webhooks/1265011787963826236/VZvWnyQ7Sp-cxq6NULuFBulu9HEhtG9IrQuqRhBh2cC36ex9zJi0g11myAZbtwleluKy'  -- Replace with your webhook URL
-local webhookUrl2 = 'https://discord.com/api/webhooks/1265012252885647391/JHQ_kpE6tFzgrLmzzEqMnMJIm81gtC8w2M44HgDcVaKKe7Uh1utgakdH2LR0mv4SoPjw'  -- Replace with your webhook URL
+local webhookUrl1 = 'YOURWEBHOOKHERE'  -- Replace with your webhook URL
+local webhookUrl2 = 'YOURWEBHOOKHERE'  -- Replace with your webhook URL
 
 -- Function to send a message to a Discord webhook
 local function sendToWebhook(url, message)
