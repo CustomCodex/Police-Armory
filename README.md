@@ -6,7 +6,8 @@ Elevate your law enforcement experience with our advanced Police Armory script, 
 
 <img src="https://i.imgur.com/8EnwqPi.png" alt="PoliceArmory">
 <br><br>
-🔧 **Features**:
+
+🔧**Features**:
 
 Enhanced Armory Access: Utilize ox_target for intuitive and precise interactions with armory components. Officers can easily access weapons and equipment using advanced targeting mechanics.
 
