@@ -1,52 +1,118 @@
-Police Armory Script for ESX (v1.10.7)
-<br><br>
-🚔 **Overview:**
+Police Armory Script for ESX
 
-Elevate your law enforcement experience with our advanced Police Armory script, designed specifically for ESX version 1.10.7. This script integrates seamlessly with ox_target, ox_lib, and ox_inventory, providing a comprehensive and immersive armory system for police departments.
+Overview
+🚔 This script adds a fully functional police armory to your ESX-based FiveM server. It includes features such as weapon management, NPC interaction, and multilingual support. Designed for seamless integration into your police roleplay, it allows officers to access and manage their arsenal directly from the armory.
 
-<img src="https://i.imgur.com/8EnwqPi.png" alt="PoliceArmory">
-<br><br>
+Features
+🔧 Customizable Coordinates & NPCs: Set specific locations and NPC models for your armory.
+🔫 Weapon Management: Configure weapon prices, attachments, and rank-based access.
+💣 Ammo Management: Set prices for ammo types and add them to your armory items.
+🌐 Multilingual Support: Easily switch between different languages based on player preferences.
+🗨️ 3D Text and Dialogue: Interactive NPC dialogues with 3D text display.
+Installation
 
-🔧**Features**:
+Download the Script:
+📥 Download the police_armory script from the repository.
 
-Enhanced Armory Access: Utilize ox_target for intuitive and precise interactions with armory components. Officers can easily access weapons and equipment using advanced targeting mechanics.
+Add to Resources Folder:
+📁 Place the script folder into your resources directory.
 
-Robust Inventory Management: Integrated with ox_inventory, the armory system ensures efficient management of police gear. Officers can browse, equip, and manage their inventory with ease.
+Add to Server Config:
+🛠️ Ensure you have the following line in your server.cfg file:
+lua
+Code kopiëren
+start police_armory
 
-Advanced Lib Functions: Leverage the power of ox_lib to streamline user interfaces and interactions, providing a smooth and polished experience.
+Configure the Script:
+⚙️ Open config.lua and set the coordinates, NPC model, and other settings as needed.
+🔧 Adjust weapon prices, attachments, and other configurations.
+Configuration
 
-Customizable Equipment: The armory supports a wide range of customizable weapons and items, allowing departments to tailor their loadouts to specific needs.
+Edit the config.lua file to customize the armory settings:
+lua
+Code kopiëren
+Config = {}
 
-Secure Access Control: Implement access permissions and roles to ensure that only authorized personnel can access and manage the armory.
+Config.ArmoryCoords = vector3(452.6, -980.0, 30.6)
+Config.ArmoryNPC = {
+    model = 's_m_y_cop_01',
+    coords = vector3(438.69100952148, -983.39495849609, 33.3),
+    heading = -170.0
+}
 
-Intuitive UI: Designed with a user-friendly interface that integrates seamlessly with your existing ESX setup, making it easy for officers to navigate and utilize the armory.
-<br><br>
-☕ **Buy Me a Coffee**:
+-- Weapon prices
+Config.WeaponPrices = {
+    ['WEAPON_FLASHLIGHT'] = 0,
+    ['WEAPON_STUNGUN'] = 0,
+    -- Add more weapon prices here
+}
 
-If you appreciate the script and want to support further development, consider buying me a coffee!
-[Buy Me a Coffee](https://www.buymeacoffee.com/costumcodex)
-<br><br>
-🔒 **Security Features:**
+-- Weapon attachments
+Config.Attachments = {
+    ['WEAPON_FLASHLIGHT'] = {
+        ['flashlight'] = 0
+    },
+    -- Add more weapon attachments here
+}
 
-Role-based Access: Ensure that only specific ranks or roles within the police department have access to certain weapons or equipment.
+-- Rank weapons
+Config.RankWeapons = {
+    [0] = {'WEAPON_FLASHLIGHT', 'WEAPON_STUNGUN', 'WEAPON_COMBATPISTOL'},
+    -- Add more ranks and weapons here
+}
 
-Logging and Tracking: Monitor and log all interactions with the armory for security and auditing purposes.
-<br><br>
-📦 **Installation:**
+-- Ammo prices configuration
+Config.AmmoPrices = {
+    ['WEAPON_PISTOL'] = 100, -- Example price
+    -- Add more ammo prices here
+}
 
-Ensure Compatibility: Verify that you are running ESX version 1.10.7 and have ox_target, ox_lib, and ox_inventory installed and configured.
+Config.ArmoryItems = {
+    { label = "ammo Pistol", item = "ammo-9", price = 500 },
+    { label = "Ammo", item = "ammo_pistol", price = 50 },
+    { label = "Flashlight", item = "flashlight", price = 30 },
+    -- Add more items as needed
+}
 
-Download and Install: Place the Police Armory script in your resources folder and update your server.cfg to include the new script.
+-- Menu position
+Config.MenuPosition = {
+    align = 'center-left',
+    x = 1.5,
+    y = 1.5
+}
 
-Configure: Follow the provided configuration guides to set up your armory locations, permissions, and equipment.
+Adding Translations
+Create Locale Files:
+🌍 Add your translation files under locales/. Each file should be named according to the language code (e.g., en.lua, fr.lua, etc.).
 
-Restart Server: Restart your server to apply changes and ensure the armory is fully operational.
-<br><br>
+Edit Locale Files:
+📝 Define the language-specific text in the locale files:
 
-📹 **Watch demo:**
-https://youtu.be/54coYoXjkgg
-<br><br>
+lua
+Code kopiëren
+Locales['en'] = {
+    ['armory_menu'] = 'Armory Menu',
+    ['return_weapon'] = 'Return Weapon',
+    ['greeting'] = 'Hello Officer, you ready to go on duty?',
+    ['instruction'] = 'Please select your armory.',
+    ['safety'] = 'Safety first.'
+}
+Usage
 
-📧 **Support and Customization:**
+Accessing the Armory:
+🚪 Approach the NPC in the designated coordinates and use the interaction menu to access the armory.
 
-For any issues, customization requests, or additional support, feel free to reach out to our support team at info@hutsakeee.nl. We're here to help you enhance your roleplaying experience!
+Using the Armory Menu:
+📜 Select weapons, manage ammo, and view items available for purchase.
+Contributing
+
+🤝 If you wish to contribute to this script, please fork the repository and submit a pull request with your changes. Ensure that your changes are well-documented and tested.
+
+License
+📝 This script is provided under the MIT License. Feel free to use and modify it as per your needs.
+
+Contact
+For any questions or support, please contact:
+
+Name: Bjorn (CustomCodex)
+Email: info@hutsakeee.nl

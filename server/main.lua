@@ -2,13 +2,46 @@ ESX = nil
 
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
-local webhookUrl1 = 'YOURWEBHOOKHERE'  -- Replace with your webhook URL
-local webhookUrl2 = 'YOURWEBHOOKHERE'  -- Replace with your webhook URL
+-- Define locales with translations for webhook messages
+Config.Locales = {
+    en = {
+        ['weapon_purchase'] = '**Weapon Purchase Log**\n- **Player:** %s\n- **Steam ID:** %s\n- **FiveM License:** %s\n- **Identifier:** %s\n- **Weapon:** %s\n- **Price:** $%d\n- **Location:** %s\n- **Date and Time:** %s\n- **Job:** %s\n- **Rank:** %s\n- **Server Name:** %s\n\n**Description:** Player %s purchased weapon %s for $%d. Good luck and have a great service!',
+        ['weapon_return'] = '**Weapon Return Log**\n- **Player:** %s\n- **Steam ID:** %s\n- **FiveM License:** %s\n- **Identifier:** %s\n- **Weapon:** %s\n- **Location:** %s\n- **Date and Time:** %s\n- **Job:** %s\n- **Rank:** %s\n- **Server Name:** %s\n\n**Description:** Player %s returned weapon %s. We hope you had a good service!',
+        ['ammo_purchase'] = '**Ammunition Purchase Log**\n- **Player:** %s\n- **Steam ID:** %s\n- **FiveM License:** %s\n- **Identifier:** %s\n- **Weapon:** %s\n- **Ammunition Type:** %s\n- **Price:** $%d\n- **Location:** %s\n- **Date and Time:** %s\n- **Job:** %s\n- **Rank:** %s\n- **Server Name:** %s\n\n**Description:** Player %s purchased %s ammunition for $%d. Good luck and have a great service!',
+    },
+    nl = {
+        ['weapon_purchase'] = '**Wapen Aankoop Log**\n- **Speler:** %s\n- **Steam ID:** %s\n- **FiveM Licentie:** %s\n- **Identificatie:** %s\n- **Wapen:** %s\n- **Prijs:** $%d\n- **Locatie:** %s\n- **Datum en Tijd:** %s\n- **Rol:** %s\n- **Rang:** %s\n- **Servernaam:** %s\n\n**Beschrijving:** Speler %s heeft wapen %s gekocht voor $%d. Veel succes en een goede dienst!',
+        ['weapon_return'] = '**Wapen Terugbreng Log**\n- **Speler:** %s\n- **Steam ID:** %s\n- **FiveM Licentie:** %s\n- **Identificatie:** %s\n- **Wapen:** %s\n- **Locatie:** %s\n- **Datum en Tijd:** %s\n- **Rol:** %s\n- **Rang:** %s\n- **Servernaam:** %s\n\n**Beschrijving:** Speler %s heeft wapen %s teruggebracht. We hopen dat je een goede dienst hebt gehad!',
+        ['ammo_purchase'] = '**Ammunitie Aankoop Log**\n- **Speler:** %s\n- **Steam ID:** %s\n- **FiveM Licentie:** %s\n- **Identificatie:** %s\n- **Wapen:** %s\n- **Ammunitie Type:** %s\n- **Prijs:** $%d\n- **Locatie:** %s\n- **Datum en Tijd:** %s\n- **Rol:** %s\n- **Rang:** %s\n- **Servernaam:** %s\n\n**Beschrijving:** Speler %s heeft %s munitie gekocht voor $%d. Veel succes en een goede dienst!',
+    },
+    de = {
+        ['weapon_purchase'] = '**Waffen Kauf Log**\n- **Spieler:** %s\n- **Steam ID:** %s\n- **FiveM Lizenz:** %s\n- **Identifikation:** %s\n- **Waffe:** %s\n- **Preis:** $%d\n- **Ort:** %s\n- **Datum und Uhrzeit:** %s\n- **Job:** %s\n- **Rang:** %s\n- **Servername:** %s\n\n**Beschreibung:** Spieler %s hat Waffe %s für $%d gekauft. Viel Erfolg und einen guten Dienst!',
+        ['weapon_return'] = '**Waffen Rückgabe Log**\n- **Spieler:** %s\n- **Steam ID:** %s\n- **FiveM Lizenz:** %s\n- **Identifikation:** %s\n- **Waffe:** %s\n- **Ort:** %s\n- **Datum und Uhrzeit:** %s\n- **Job:** %s\n- **Rang:** %s\n- **Servername:** %s\n\n**Beschreibung:** Spieler %s hat Waffe %s zurückgegeben. Wir hoffen, dass Sie einen guten Dienst hatten!',
+        ['ammo_purchase'] = '**Munition Kauf Log**\n- **Spieler:** %s\n- **Steam ID:** %s\n- **FiveM Lizenz:** %s\n- **Identifikation:** %s\n- **Waffe:** %s\n- **Munitionstyp:** %s\n- **Preis:** $%d\n- **Ort:** %s\n- **Datum und Uhrzeit:** %s\n- **Job:** %s\n- **Rang:** %s\n- **Servername:** %s\n\n**Beschreibung:** Spieler %s hat %s Munition für $%d gekauft. Viel Erfolg und einen guten Dienst!',
+    },
+    fr = {
+        ['weapon_purchase'] = '**Journal d\'Achat d\'Arme**\n- **Joueur:** %s\n- **Steam ID:** %s\n- **FiveM Licence:** %s\n- **Identifiant:** %s\n- **Arme:** %s\n- **Prix:** $%d\n- **Emplacement:** %s\n- **Date et Heure:** %s\n- **Job:** %s\n- **Rang:** %s\n- **Nom du Serveur:** %s\n\n**Description:** Le joueur %s a acheté l\'arme %s pour $%d. Bonne chance et bon service!',
+        ['weapon_return'] = '**Journal de Retour d\'Arme**\n- **Joueur:** %s\n- **Steam ID:** %s\n- **FiveM Licence:** %s\n- **Identifiant:** %s\n- **Arme:** %s\n- **Emplacement:** %s\n- **Date et Heure:** %s\n- **Job:** %s\n- **Rang:** %s\n- **Nom du Serveur:** %s\n\n**Description:** Le joueur %s a retourné l\'arme %s. Nous espérons que vous avez passé un bon service!',
+        ['ammo_purchase'] = '**Journal d\'Achat de Munitions**\n- **Joueur:** %s\n- **Steam ID:** %s\n- **FiveM Licence:** %s\n- **Identifiant:** %s\n- **Arme:** %s\n- **Type de Munitions:** %s\n- **Prix:** $%d\n- **Emplacement:** %s\n- **Date et Heure:** %s\n- **Job:** %s\n- **Rang:** %s\n- **Nom du Serveur:** %s\n\n**Description:** Le joueur %s a acheté des munitions %s pour $%d. Bonne chance et bon service!',
+    }
+}
+
+-- Function to get localized message
+function getLocalizedMessage(lang, key, ...)
+    local locale = Config.Locales[lang] or Config.Locales['en']
+    local message = locale[key] or key
+    return string.format(message, ...)
+end
 
 -- Function to send a message to a Discord webhook
-local function sendToWebhook(url, message)
+local function sendToWebhook(url, lang, key, ...)
+    local message = getLocalizedMessage(lang, key, ...)
     PerformHttpRequest(url, function(err, text, headers) end, 'POST', json.encode({content = message}), {['Content-Type'] = 'application/json'})
 end
+
+
+local webhookUrl1 = 'YOURWEBHOOKHERE'  -- Replace with your webhook URL
+local webhookUrl2 = 'YOURWEBHOOKHERE'  -- Replace with your webhook URL
 
 -- Function to get the current time and date in Dutch
 local function getCurrentTimeInDutch()
@@ -79,6 +112,11 @@ ESX.RegisterServerCallback('policearmory:getPlayerWeapons', function(source, cb)
     end)
 end)
 
+local function getPlayerLanguage(source)
+    local xPlayer = ESX.GetPlayerFromId(source)
+    return xPlayer.get('locale') or 'en'  -- Assuming you have a way to get the player's preferred locale
+end
+
 RegisterServerEvent('policearmory:buyWeapon')
 AddEventHandler('policearmory:buyWeapon', function(weaponName, price)
     local xPlayer = ESX.GetPlayerFromId(source)
@@ -91,6 +129,7 @@ AddEventHandler('policearmory:buyWeapon', function(weaponName, price)
     local time = getCurrentTimeInDutch()
     local job = xPlayer.job.label
     local rank = getPlayerRank(xPlayer)
+    local lang = getPlayerLanguage(source)
 
     if money >= price then
         xPlayer.removeMoney(price)
@@ -107,24 +146,8 @@ AddEventHandler('policearmory:buyWeapon', function(weaponName, price)
         TriggerClientEvent('esx:showNotification', source, 'Je hebt een ' .. ESX.GetWeaponLabel(weaponName) .. ' gekocht voor $' .. price)
 
         -- Send message to Discord webhook
-        local message = string.format([[
-**Wapen Aankoop Log**
-- **Speler:** %s
-- **Steam ID:** %s
-- **FiveM Licentie:** %s
-- **Identificatie:** %s
-- **Wapen:** %s
-- **Prijs:** $%d
-- **Locatie:** %s
-- **Datum en Tijd:** %s
-- **Rol:** %s
-- **Rang:** %s
-- **Servernaam:** %s
-
-**Beschrijving:** Speler %s heeft een wapen gekocht: %s voor $%d. Veel succes en een goede dienst!
-        ]], playerName, steamId, licenseId, identifier, ESX.GetWeaponLabel(weaponName), price, location, time, job, rank, GetConvar('sv_hostname', 'Onbekend'), playerName, ESX.GetWeaponLabel(weaponName), price)
-
-        sendToWebhook(webhookUrl1, message)
+        local messageKey = 'weapon_purchase'
+        sendToWebhook(webhookUrl1, lang, messageKey, playerName, steamId, licenseId, identifier, ESX.GetWeaponLabel(weaponName), price, location, time, job, rank, GetConvar('sv_hostname', 'Onbekend'), playerName, ESX.GetWeaponLabel(weaponName), price)
     else
         TriggerClientEvent('esx:showNotification', source, 'Je hebt niet genoeg geld')
     end
@@ -141,6 +164,7 @@ AddEventHandler('policearmory:returnWeapon', function(weaponName)
     local time = getCurrentTimeInDutch()
     local job = xPlayer.job.label
     local rank = getPlayerRank(xPlayer)
+    local lang = getPlayerLanguage(source)
 
     -- Remove weapon from the player's inventory
     exports.ox_inventory:RemoveItem(source, weaponName, 1)
@@ -161,26 +185,31 @@ AddEventHandler('policearmory:returnWeapon', function(weaponName)
     TriggerClientEvent('esx:showNotification', source, 'Je hebt een ' .. ESX.GetWeaponLabel(weaponName) .. ' teruggebracht')
 
     -- Send message to Discord webhook
-    local message = string.format([[
-**Wapen Terugbreng Log**
-- **Speler:** %s
-- **Steam ID:** %s
-- **FiveM Licentie:** %s
-- **Identificatie:** %s
-- **Wapen:** %s
-- **Locatie:** %s
-- **Datum en Tijd:** %s
-- **Rol:** %s
-- **Rang:** %s
-- **Servernaam:** %s
-
-**Beschrijving:** Speler %s heeft een wapen teruggebracht: %s. We hopen dat je een goede dienst hebt gehad!
-    ]], playerName, steamId, licenseId, identifier, ESX.GetWeaponLabel(weaponName), location, time, job, rank, GetConvar('sv_hostname', 'Onbekend'), playerName, ESX.GetWeaponLabel(weaponName))
-
-    sendToWebhook(webhookUrl2, message)
+    local messageKey = 'weapon_return'
+    sendToWebhook(webhookUrl2, lang, messageKey, playerName, steamId, licenseId, identifier, ESX.GetWeaponLabel(weaponName), location, time, job, rank, GetConvar('sv_hostname', 'Onbekend'), playerName, ESX.GetWeaponLabel(weaponName))
 end)
 
-RegisterServerEvent('policearmory:buyAmmo')
+
+
+
+ESX.RegisterServerCallback('police_armory:purchaseItem', function(source, cb, item)
+    local xPlayer = ESX.GetPlayerFromId(source)
+    local money = xPlayer.getMoney()
+
+    if money >= item.price then
+        xPlayer.removeMoney(Config.ArmoryItems.price)
+        xPlayer.addInventoryItem(Config.ArmoryItems.item, 1)
+        TriggerClientEvent('esx:showNotification', source, 'Purchase successful!')
+        cb(true)
+    else
+        TriggerClientEvent('esx:showNotification', source, 'Not enough money!')
+        cb(false)
+    end
+end)
+
+
+
+--[[RegisterServerEvent('policearmory:buyAmmo')
 AddEventHandler('policearmory:buyAmmo', function(weaponName, ammoType, ammoPrice)
     local xPlayer = ESX.GetPlayerFromId(source)
     local money = xPlayer.getMoney()
@@ -196,9 +225,14 @@ AddEventHandler('policearmory:buyAmmo', function(weaponName, ammoType, ammoPrice
     if money >= ammoPrice then
         xPlayer.removeMoney(ammoPrice)
 
-        -- Add ammo to the player's inventory
-        local ammoItemName = weaponName .. '_ammo'
-        exports.ox_inventory:AddItem(source, ammoItemName, 1, {ammo = 250})
+if ammoPrices = pistol then
+    exports.ox_inventory:AddItem(source, ammo-9, 100 )
+else
+    if ammoPrices = smg then 
+     exports.ox_inventory:AddItem(source, ammo-45, 100 )
+
+
+    --    exports.ox_inventory:AddItem(source, ammoItemName, 1, {ammo = 250})
 
         -- Notify the player
         TriggerClientEvent('esx:showNotification', source, 'Je hebt ' .. ammoType .. ' gekocht voor $' .. ammoPrice)
@@ -220,12 +254,12 @@ AddEventHandler('policearmory:buyAmmo', function(weaponName, ammoType, ammoPrice
 - **Servernaam:** %s
 
 **Beschrijving:** Speler %s heeft %s gekocht voor $%d. Veel succes en een goede dienst!
-        ]], playerName, steamId, licenseId, identifier, ESX.GetWeaponLabel(weaponName), ammoType, ammoPrice, location, time, job, rank, GetConvar('sv_hostname', 'Onbekend'), playerName, ammoType, ammoPrice)
+        , playerName, steamId, licenseId, identifier, ESX.GetWeaponLabel(weaponName), ammoType, ammoPrice, location, time, job, rank, GetConvar('sv_hostname', 'Onbekend'), playerName, ammoType, ammoPrice)
 
         sendToWebhook(webhookUrl1, message)
     else
         TriggerClientEvent('esx:showNotification', source, 'Je hebt niet genoeg geld')
     end
-end)
+end)]]
 
 

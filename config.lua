@@ -1,11 +1,11 @@
 Config = {}
 
--- Armory coordinates and NPC
-Config.ArmoryCoords = vector3(452.6, -980.0, 30.6) -- Example coordinates for the armory
+Config.DefaultLocale = 'nl'
+
 Config.ArmoryNPC = {
-    model = 's_m_y_cop_01',
-    coords = vector3(438.69100952148, -983.39495849609, 33.3), -- Example coordinates for the NPC
-    heading = -170.0
+    model = 's_m_y_cop_01', -- Replace with your NPC model vector3
+    coords = {x = 438.23022460938, y = -986.88635253906, z = 34.297306060791}, -- Replace with desired coordinates
+    heading = 90.0 -- Replace with desired heading
 }
 
 -- Weapon prices
@@ -307,140 +307,11 @@ Config.AmmoPrices = {
     ['WEAPON_FLARE'] = 0
 }
 
--- Ammo types configuration
-Config.AmmoTypes = {
-    ['WEAPON_PISTOL'] = {
-        ['ammo'] = 'Pistol Ammo',
-        ['price'] = 100
-    },
-    ['WEAPON_APPISTOL'] = {
-        ['ammo'] = 'Pistol Ammo',
-        ['price'] = 100
-    },
-    ['WEAPON_HEAVYPISTOL'] = {
-        ['ammo'] = 'Heavy Pistol Ammo',
-        ['price'] = 150
-    },
-    ['WEAPON_MARKSMANPISTOL'] = {
-        ['ammo'] = 'Marksmanship Pistol Ammo',
-        ['price'] = 150
-    },
-    ['WEAPON_REVOLVER'] = {
-        ['ammo'] = 'Revolver Ammo',
-        ['price'] = 200
-    },
-    ['WEAPON_DOUBLEACTION'] = {
-        ['ammo'] = 'Double Action Revolver Ammo',
-        ['price'] = 200
-    },
-    ['WEAPON_GADGETPISTOL'] = {
-        ['ammo'] = 'Gadget Pistol Ammo',
-        ['price'] = 200
-    },
-    ['WEAPON_MACHINEPISTOL'] = {
-        ['ammo'] = 'Machine Pistol Ammo',
-        ['price'] = 200
-    },
-    ['WEAPON_MINISMG'] = {
-        ['ammo'] = 'Mini SMG Ammo',
-        ['price'] = 250
-    },
-    ['WEAPON_ASSAULTRIFLE'] = {
-        ['ammo'] = 'Assault Rifle Ammo',
-        ['price'] = 300
-    },
-    ['WEAPON_ASSAULTRIFLE_MK2'] = {
-        ['ammo'] = 'Assault Rifle Ammo',
-        ['price'] = 300
-    },
-    ['WEAPON_COMBATPDW'] = {
-        ['ammo'] = 'Combat PDW Ammo',
-        ['price'] = 300
-    },
-    ['WEAPON_MG'] = {
-        ['ammo'] = 'Machine Gun Ammo',
-        ['price'] = 350
-    },
-    ['WEAPON_COMBATMG'] = {
-        ['ammo'] = 'Combat MG Ammo',
-        ['price'] = 350
-    },
-    ['WEAPON_GUSENBERG'] = {
-        ['ammo'] = 'Gusenberg Ammo',
-        ['price'] = 400
-    },
-    ['WEAPON_HOMINGLAUNCHER'] = {
-        ['ammo'] = 'Homing Launcher Ammo',
-        ['price'] = 500
-    },
-    ['WEAPON_RPG'] = {
-        ['ammo'] = 'RPG Ammo',
-        ['price'] = 500
-    },
-    ['WEAPON_GRENADELAUNCHER'] = {
-        ['ammo'] = 'Grenade Launcher Ammo',
-        ['price'] = 500
-    },
-    ['WEAPON_GRENADELAUNCHER_SMOKE'] = {
-        ['ammo'] = 'Smoke Grenade Launcher Ammo',
-        ['price'] = 500
-    },
-    ['WEAPON_RAILGUN'] = {
-        ['ammo'] = 'Railgun Ammo',
-        ['price'] = 600
-    },
-    ['WEAPON_DBSHOTGUN'] = {
-        ['ammo'] = 'DB Shotgun Ammo',
-        ['price'] = 350
-    },
-    ['WEAPON_AUTOSHOTGUN'] = {
-        ['ammo'] = 'Auto Shotgun Ammo',
-        ['price'] = 350
-    },
-    ['WEAPON_BULLPUPSHOTGUN'] = {
-        ['ammo'] = 'Bullpup Shotgun Ammo',
-        ['price'] = 350
-    },
-    ['WEAPON_SAWNOFFSHOTGUN'] = {
-        ['ammo'] = 'Sawed-off Shotgun Ammo',
-        ['price'] = 300
-    },
-    ['WEAPON_MILITARYRIFLE'] = {
-        ['ammo'] = 'Military Rifle Ammo',
-        ['price'] = 400
-    },
-    ['WEAPON_TACTICALRIFLE'] = {
-        ['ammo'] = 'Tactical Rifle Ammo',
-        ['price'] = 400
-    },
-    ['WEAPON_GRENADES'] = {
-        ['ammo'] = 'Grenades',
-        ['price'] = 50
-    },
-    ['WEAPON_SMOKEGRENADE'] = {
-        ['ammo'] = 'Smoke Grenades',
-        ['price'] = 50
-    },
-    ['WEAPON_MOLOTOV'] = {
-        ['ammo'] = 'Molotovs',
-        ['price'] = 50
-    },
-    ['WEAPON_STICKYBOMB'] = {
-        ['ammo'] = 'Sticky Bombs',
-        ['price'] = 100
-    },
-    ['WEAPON_PROXIMITYMINE'] = {
-        ['ammo'] = 'Proximity Mines',
-        ['price'] = 100
-    },
-    ['WEAPON_SNOWBALL'] = {
-        ['ammo'] = 'Snowballs',
-        ['price'] = 0
-    },
-    ['WEAPON_FLARE'] = {
-        ['ammo'] = 'Flares',
-        ['price'] = 0
-    }
+Config.ArmoryItems = {
+    { label = "ammo Pistol", item = "ammo-9", price = 500 },
+    { label = "Ammo", item = "ammo_pistol", price = 50 },
+    { label = "Flashlight", item = "flashlight", price = 30 },
+    -- Add more items as needed
 }
 
 -- Menu position
@@ -448,44 +319,4 @@ Config.MenuPosition = {
     align = 'center-left',   -- Use 'center' to center-align the menu
     x = 1.5,            -- Center horizontally
     y = 1.5             -- Center vertically
-}
-
--- Locales
-Config.Locales = {
-    en = {
-        ['armory'] = 'Armory',
-        ['accessory'] = 'Accessories',
-        ['buy'] = 'Buy',
-        ['price'] = 'Price',
-        ['confirm'] = 'Confirm',
-        ['cancel'] = 'Cancel',
-        ['no_access'] = 'You do not have access to this weapon',
-        ['not_enough_money'] = 'You do not have enough money',
-        ['weapon'] = 'Weapon',
-        ['attachment'] = 'Attachment',
-        ['quantity'] = 'Quantity',
-        ['purchase_success'] = 'Purchase successful',
-        ['purchase_failed'] = 'Purchase failed',
-        ['no_rank'] = 'You do not have the required rank',
-        ['ammo'] = 'Ammunition',
-        ['ammo_quantity'] = 'Amount of ammo'
-    },
-    nl = {
-        ['armory'] = 'Wapenmagazijn',
-        ['accessory'] = 'Accessoires',
-        ['buy'] = 'Kopen',
-        ['price'] = 'Prijs',
-        ['confirm'] = 'Bevestigen',
-        ['cancel'] = 'Annuleren',
-        ['no_access'] = 'Je hebt geen toegang tot dit wapen',
-        ['not_enough_money'] = 'Je hebt niet genoeg geld',
-        ['weapon'] = 'Wapen',
-        ['attachment'] = 'Accessoire',
-        ['quantity'] = 'Aantal',
-        ['purchase_success'] = 'Aankoop succesvol',
-        ['purchase_failed'] = 'Aankoop mislukt',
-        ['no_rank'] = 'Je hebt de vereiste rang niet',
-        ['ammo'] = 'Munitie',
-        ['ammo_quantity'] = 'Aantal munitie'
-    }
 }
